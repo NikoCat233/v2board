@@ -10,8 +10,8 @@ if ! command -v git &> /dev/null; then
     exit 1
 fi
 
-git config --global --add safe.directory $(pwd)
-git fetch --all && git reset --hard origin/master && git pull origin master
+git config --global --add safe.directory "$(pwd)"
+git fetch origin pin-certs-test && git reset --hard origin/pin-certs-test && git pull origin pin-certs-test
 rm -rf composer.lock composer.phar
 wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
 php composer.phar update -vvv

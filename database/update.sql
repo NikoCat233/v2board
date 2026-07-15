@@ -888,3 +888,6 @@ CREATE TABLE IF NOT EXISTS `v2_stat_user_server` (
                                 KEY `server_type` (`server_type`),
                                 KEY `record_at` (`record_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户节点流量统计';
+
+ALTER TABLE `v2_server_v2node`
+ADD `trusted_x_forwarded_for` varchar(255) COLLATE 'utf8mb4_general_ci' NULL COMMENT '信任的x-forwarded-for头部' AFTER `network_settings`;

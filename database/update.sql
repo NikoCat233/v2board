@@ -286,7 +286,7 @@ CHANGE `show` `show` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否显示' AFTE
 ALTER TABLE `v2_server_trojan`
 ADD `server_name` varchar(255) NULL AFTER `allow_insecure`;
 
--- TLS certificate pinning support. Existing 0/1 values remain valid.
+/* TLS certificate pinning support. Existing 0/1 values remain valid. */
 ALTER TABLE `v2_server_trojan`
 CHANGE `allow_insecure` `allow_insecure` varchar(16) NOT NULL DEFAULT '0' COMMENT 'TLS 验证模式：0、pincert 或 1',
 ADD `pinned_peer_cert_sha256` varchar(95) NULL AFTER `allow_insecure`,
@@ -892,7 +892,7 @@ CREATE TABLE IF NOT EXISTS `v2_stat_user_server` (
 ALTER TABLE `v2_server_v2node`
 ADD `trusted_x_forwarded_for` varchar(255) COLLATE 'utf8mb4_general_ci' NULL COMMENT '信任的x-forwarded-for头部' AFTER `network_settings`;
 
--- 2026-07-15: a plan and its users may belong to multiple server groups.
+/* 2026-07-15: a plan and its users may belong to multiple server groups. */
 ALTER TABLE `v2_plan`
 MODIFY `group_id` text NOT NULL;
 

@@ -45,8 +45,8 @@ class V2boardUpdate extends Command
         if (!$file) {
             abort(500, '数据库文件不存在');
         }
-        $sql = str_replace("\n", "", $file);
-        $sql = preg_split("/;/", $sql);
+        // Keep line breaks so SQL line comments do not swallow the statement that follows.
+        $sql = preg_split("/;/", $file);
         if (!is_array($sql)) {
             abort(500, '数据库文件格式有误');
         }

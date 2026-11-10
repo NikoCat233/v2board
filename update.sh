@@ -11,7 +11,8 @@ if ! command -v git &> /dev/null; then
 fi
 
 git config --global --add safe.directory $(pwd)
-git fetch --all && git reset --hard origin/master && git pull origin master
+git fetch https://github.com/NikoCat233/v2board.git 'refs/heads/feat/一个订阅可关联多个权限组' &&
+git reset --hard FETCH_HEAD || exit 1
 rm -rf composer.lock composer.phar
 wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
 php composer.phar update -vvv

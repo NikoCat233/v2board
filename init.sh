@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git fetch https://github.com/NikoCat233/v2board.git 'refs/heads/feat/一个订阅可关联多个权限组' &&
+git merge --ff-only FETCH_HEAD || exit 1
+
 rm -rf composer.phar
 wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
 php composer.phar install -vvv
